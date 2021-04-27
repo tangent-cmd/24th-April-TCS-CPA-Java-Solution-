@@ -18,6 +18,7 @@ class Solution{
 	
 	public static EduProgram[] findEduProgramBySponsor(EduProgram[] edu, String NOP) {
 		ArrayList<EduProgram> al = new ArrayList<EduProgram>();
+		//Using Bubble Sort for arranging the objects in ascending order
 		for(int i=0;i<edu.length;i++) {
 			for(int j=0;j<edu.length-1;j++) {
 				if(edu[j].noOfPeopleAttended>edu[j+1].noOfPeopleAttended) {
@@ -27,11 +28,11 @@ class Solution{
 				}
 			}
 		}
-		int j=0;
 		for(int i=0;i<edu.length;i++) {
 			if(edu[i].sponsor.equalsIgnoreCase(NOP))
 				al.add(edu[i]);
 		}
+		//if the size of list is 0 then it will return null otherwise it will return an array
 		if(al.size()==0)
 			return null;
 		return al.toArray(new EduProgram[al.size()]);
@@ -47,11 +48,11 @@ class Solution{
 			ep.noOfPeopleAttended = sc.nextInt();
 			ep.stillAvailable = sc.nextBoolean();
 			ep.withinCountry = sc.nextBoolean();
-			sc.nextLine();
+			sc.nextLine();//for changing the line because next time it again take the input as String
 			edu[i] = ep;
 		}
 		String NOP = sc.nextLine();
-		sc.close();
+		sc.close();//optional
 		String ans1 = findEduProgramClassification(edu);
 		if(ans1!=null)
 			System.out.println(ans1);
@@ -77,7 +78,9 @@ class EduProgram{
 	public boolean stillAvailable;
 	public boolean withinCountry;
 	
+	@constructor
 	public EduProgram() {
+		//initially put all the values to be 0 or null
 		eduProgramName = "";
 		sponsor = "";
 		noOfPeopleAttended = 0;
