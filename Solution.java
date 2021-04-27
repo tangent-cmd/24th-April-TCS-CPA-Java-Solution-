@@ -78,7 +78,6 @@ class EduProgram{
 	public boolean stillAvailable;
 	public boolean withinCountry;
 	
-	@constructor
 	public EduProgram() {
 		//initially put all the values to be 0 or null
 		eduProgramName = "";
